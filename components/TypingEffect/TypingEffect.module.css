@@ -1,0 +1,26 @@
+.typewriter {
+    overflow: hidden; /* Ensures the text is not visible */
+    display: inline-block; /* Makes the text display inline */
+    animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
+
+  
