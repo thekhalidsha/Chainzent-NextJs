@@ -9,6 +9,7 @@
   --background-end-rgb: 255, 255, 255;
   --prime-color-rgb: rgb(55 65 81);
   --basic-color-rgb: rgb(156 163 175);
+  --hex-color: #00536e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
     --prime-color-rgb: rgb(55 65 81);
+    --hex-color: #00536e;
   }
 }
 
@@ -30,12 +32,33 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
+.linebreak{
+  width: 100%;
+  height: 0px;
+  background-color: black;
+  border: 1px solid black;
+}
+.body-bg{
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+}
 .prime-color{
   background-color: var(--prime-color-rgb);
 }
 .basic-color{
   background-color: rgb(156 163 175);
+}
+.hex-color{
+  background-color: var(--hex-color);
+}
+.prime-text{
+  color: var(--prime-color-rgb);
+}
+.basic-text{
+  color: rgb(156 163 175);
+}
+.hex-text{
+  color: var(--hex-color);
 }
 .nav_logo{
   max-width:35%;
@@ -48,4 +71,151 @@ body {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
+* {
+  box-sizing: border-box;
+}
 
+.test_item {
+  width: 200px;
+  border: 2px solid red;
+  height: 200px;
+  /* margin: 50px auto; */
+  padding-top: 75px;
+  background: transparent;
+  text-align: center;
+  color: black;
+  /* font-size: 3em; */
+}
+.tborder{
+  border: 2px solid red;
+}
+.clearfix{
+  width: 100%;
+  height: 20px;
+}
+
+.bg-mask {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.bg-mask:before {
+  /* content: ''; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(76,0,0,0.8); */
+}
+.banner-container{
+  z-index: 3;
+}
+.left-div{
+  /* border:2px solid #b8b6b6; */
+  width: 90%;
+  margin: 10px;
+  min-height: 250px;
+  /* min-height: flex-end; */
+  max-height: 90%;
+  word-wrap: break-word;
+}
+.right-div img{
+  border-radius: 20px;
+  border:2px solid #e7e4e4;
+  width: 100%;
+  /* margin: 10px; */
+  /* min-height: flex-end; */
+  /* max-height: 90%; */
+}
+
+.pf_image-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pf_image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.pf_card {
+  /* background-image: url('/nowash_website.png') no-repeat !important; */
+  border: 2px solid #e7e4e4;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+
+.pf_item{
+  opacity: 0 !important;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* width: 200px; */
+  /* height: 200px; */
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  /* position: relative; */
+}
+.pf_item:hover  {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease !important;
+}
+.pf_card:hover  {
+  opacity: 1 !important;
+  /* background-color: #00536e; */
+}
+
+.pf_img{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* width: 200px; */
+  /* height: 200px; */
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.service_item{
+  opacity: 1 !important;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* width: 200px; */
+  /* height: 200px; */
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  /* position: relative; */
+}
+
+.service_card{
+  border: 2px solid var(--hex-color);
+}
+
+.service_btn{
+  border: 2px solid var(--hex-color);
+}
+.service_btn:hover {
+  background-color: var(--hex-color);
+  color: #fff;
+}
+
+.team_card:hover{
+  background-color: var(--hex-color);
+}

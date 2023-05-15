@@ -1,0 +1,60 @@
+const team = [
+    {
+        name: 'Pranav Anilkumar',
+        title: 'CEO',
+        note: 'Empowering the future with innovative Web 3.0 and Ethereum solutions - Leading Developer.',
+        image: '/team/pranav.png',
+        github: '',
+        instagram: '',
+    },
+    {
+        name: 'Adithyan Ullas',
+        title: 'Business Analyst',
+        note: 'Experienced UI/UX developer and digital marketer with a passion for creating engaging user experiences that drive results.',
+        image: '/team/ullas.png',
+        github: '',
+        instagram: '',
+    },
+    {
+        name: 'Krishna Narayanan S',
+        title: 'QA Analyst',
+        note: 'As a technical support specialist, provide 24/7 assistance to ensure smooth functioning of systems and resolve any technical issues.',
+        image: '/team/kannan.png',
+        github: '',
+        instagram: '',
+    },
+    {
+        name: 'Delin Dilip',
+        title: 'Software Developer',
+        note: 'Innovative software and mobile developer with proven expertise in leading development teams and delivering high-quality products.',
+        image: null,
+        github: '',
+        instagram: '',
+    },
+    {
+        name: 'Mohammed Khalid',
+        title: 'Web Developer',
+        note: 'Designing websites that look good and work great with seamless user experience.',
+        image: '/team/khalid.png',
+        github: 'thekhalidsha',
+        instagram: 'thekhalidsha',
+    },
+    {
+        name: 'Bona Das Mascreen',
+        title: 'SEO Strategist',
+        note: 'Crafting compelling content and implementing SEO strategies to drive organic traffic.',
+        image: '/team/bona.png',
+        github: '',
+        instagram: '',
+    },
+    {
+        name: 'Abdul Yazer',
+        title: 'App Developer',
+        note: 'Expert in developing cross-platform mobile applications using Flutter framework.',
+        image: '/team/yazr.png',
+        github: '',
+        instagram: '',
+    },
+];
+ 
+export default team;

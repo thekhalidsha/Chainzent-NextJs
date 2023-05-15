@@ -8,3 +8,20 @@ export const NavLink = styled(Link)`
     color: ${(props) => props.theme.secondary};
   }
 `;
+export const ClearFix = ({ Hpx }) => {
+  if(!Hpx || Hpx == null){
+    Hpx = "20";
+  }
+  return(
+    
+    <div style={{width: "100%", height: Hpx + "px"}}></div>
+  )
+} 
+
+export const LineBreak = () => {
+  return ( 
+    <div className='linebreak'></div>
+   );
+}
+ 
+export default LineBreak;

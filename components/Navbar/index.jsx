@@ -1,5 +1,5 @@
 // import React from "react";
-import { NavLink } from "@/styles/globalStyles";
+import { ClearFix, NavLink } from "@/styles/globalStyles";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
@@ -7,7 +7,7 @@ const Navbar = () => {
   // const [activeLink, setActiveLink] = useState("/");
   const [navbar, setNavbar] = useState(false);
   const [navBackground, setNavBackground] = useState(false);
-
+  const [activeSection, setActiveSection] = useState('');
   const changeBackground = () => {
     if (window.scrollY >= 80) {
       setNavBackground(true);
@@ -17,15 +17,33 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'contact', 'portfolio', 'services', 'team'];
+
+      const scrollPosition = window.scrollY;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+
+        if (section) {
+          if (scrollPosition >= section.offsetTop) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
     window.addEventListener('scroll', changeBackground);
+    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', changeBackground);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   return (
     <>
     <div>
-      <nav className={`fixed w-full shadow ${navBackground ? 'prime-color' : 'bg-transparent'}`}>
+      <nav className={`z-100 fixed w-full shadow ${navBackground ? 'prime-color' : 'basic-color'}`}>
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -35,13 +53,13 @@ const Navbar = () => {
               </a>
               <div className="md:hidden">
                 <button
-                  className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                  className={`p-2 rounded-md outline-none focus:border-gray-400 focus:border ${navBackground ? 'text-white' : 'text-gray-700'}`}
                   onClick={() => setNavbar(!navbar)}
                 >
                   {navbar ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-white"
+                      className="w-6 h-6"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -54,7 +72,7 @@ const Navbar = () => {
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-white"
+                      className="w-6 h-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -78,17 +96,20 @@ const Navbar = () => {
               }`}
             >
               <ul className={`items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 ${navBackground ? 'text-white' : 'text-black'}`}>
-                <li className="">
-                  <NavLink href="/" >Home</NavLink>
+                <li className={activeSection === 'home' ? 'underline' : ''}>
+                  <NavLink href="/#home" >Home</NavLink>
                 </li>
-                <li className="">
-                  <NavLink href="/" >Blogs</NavLink>
+                <li className={activeSection === 'about' ? 'underline' : ''} >
+                  <NavLink href="/#about" >About</NavLink>
                 </li>
-                <li className="" >
-                  <NavLink href="/" >About</NavLink>
+                <li className={activeSection === 'portfolio' ? 'underline' : ''}>
+                  <NavLink href="/#portfolio" >Portfolio</NavLink>
                 </li>
-                <li className="">
-                  <NavLink href="/" >Contact Us</NavLink>
+                <li className={activeSection === 'services' ? 'underline' : ''}>
+                  <NavLink href="/#services" >Service</NavLink>
+                </li>
+                <li className={activeSection === 'contact' ? 'underline' : ''}>
+                  <NavLink href="/#contact" >Contact Us</NavLink>
                 </li>
               </ul>
             </div>
